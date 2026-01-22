@@ -11,7 +11,7 @@ export default function Page() {
 
 export function WeekTwoLink() {
     return (
-      <Link href="http://localhost:3000/week-2">
+      <Link href="/week-2">
         Go to week-2
       </Link>
   );
