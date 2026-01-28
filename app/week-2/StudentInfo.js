@@ -9,7 +9,9 @@ export function GitLink() {
     return (
     <p>
       GitHub:{" "}
-      <Link href="https://github.com/kylle710/cprg306-assignments">
+      <Link 
+      href="https://github.com/kylle710/cprg306-assignments"
+      targets = "blank">
         kylle710/cprg306-assignments
       </Link>
     </p>
