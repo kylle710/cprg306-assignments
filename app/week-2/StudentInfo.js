@@ -6,12 +6,14 @@ export function MyName()
 import Link from "next/link";
 
 export function GitLink() {
-    return (
+  return (
     <p>
       GitHub:{" "}
-      <Link 
-      href="https://github.com/kylle710/cprg306-assignments"
-      targets = "blank">
+      <Link
+        href="https://github.com/kylle710/cprg306-assignments"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         kylle710/cprg306-assignments
       </Link>
     </p>
