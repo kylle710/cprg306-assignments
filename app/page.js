@@ -12,7 +12,7 @@ export default function Page() {
 
 export function WeekTwoLink() {
     return (
-      <Link href="/week-2"> Go to week-2 -→ </Link>
+      <Link href="/week-2"> Go to week-2 → </Link>
   );
 }
 
