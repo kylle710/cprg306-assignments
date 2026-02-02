@@ -13,9 +13,9 @@ export function GitLink() {
         href="https://github.com/kylle710/cprg306-assignments"
         target="_blank"
         rel="noopener noreferrer"
-      </div>
+      >
         kylle710/cprg306-assignments
       </Link>
-    </p>
+    </div>
   );
 }
