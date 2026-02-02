@@ -1,4 +1,4 @@
-export function MyName() 
+function MyName() 
 {
     return <h1>Name: Kylle B.</h1>;
 }
