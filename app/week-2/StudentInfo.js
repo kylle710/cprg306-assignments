@@ -7,13 +7,13 @@ import Link from "next/link";
 
 export function GitLink() {
   return (
-    <p>
+    <div>
       GitHub:{" "}
       <Link
         href="https://github.com/kylle710/cprg306-assignments"
         target="_blank"
         rel="noopener noreferrer"
-      >
+      </div>
         kylle710/cprg306-assignments
       </Link>
     </p>
