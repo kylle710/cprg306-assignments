@@ -1,21 +1,15 @@
-export function MyName() 
-{
-    return <h1>Name: Kylle B.</h1>;
-}
-
 import Link from "next/link";
 
-export function GitLink() {
+function StudentInfo({ name, github }) {
   return (
-    <div>
-      GitHub:{" "}
-      <Link
-        href="https://github.com/kylle710/cprg306-assignments"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        kylle710/cprg306-assignments
-      </Link>
-    </div>
+    <article>
+      <h2>{name}</h2>
+      <div>
+        GitHub:{" "}
+        <Link href={github} target="_blank" rel="noopener noreferrer">
+          {github}
+        </Link>
+      </div>
+    </article>
   );
 }
