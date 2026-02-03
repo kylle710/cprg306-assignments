@@ -1,11 +1,11 @@
-import { MyName, GitLink } from "./StudentInfo.js";
-
 export default function Page() {
   return (
-    <div>
-        <h1>Shopping List</h1>
-        <MyName />
-        <GitLink />
-    </div>
+    <main>
+      <h1>Week 2</h1>
+      <StudentInfo
+        name="Kylle B."
+        github="https://github.com/kylle710/cprg306-assignments"
+      />
+    </main>
   );
 }
