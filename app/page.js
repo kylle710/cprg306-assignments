@@ -20,7 +20,7 @@ export function WeekTwoLink() {
 export function WeekThreeLink() {
     return (
       <Link href="/week-3">
-        Go to week-3
+        Go to week-3 →
       </Link>
   );
 }
