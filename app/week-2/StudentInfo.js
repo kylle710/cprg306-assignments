@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function StudentInfo({ name, github }) {
+export function StudentInfo({ name, github }) {
   return (
     <article>
       <h2>{name}</h2>
