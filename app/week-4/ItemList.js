@@ -6,10 +6,10 @@ export default function ItemList() {
     <ul>
       {items.map(item => (
         <Item
-          key={item.id}
-          name={item.name}
-          quantity={item.quantity}
-          category={item.category}
+        key={item.id}
+        name={item.name}
+        quantity={item.quantity}
+        category={item.category}
         />
       ))}
     </ul>
