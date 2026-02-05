@@ -3,7 +3,7 @@ import items from "./Items.json";
 
 export default function ItemList() {
   return (
-    <ul>
+    <ul className="pt-1">
       {items.map(item => (
         <Item
           key={item.id}
