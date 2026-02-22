@@ -18,7 +18,6 @@ export default function Page() {
           Add New Item
         </h1>
         <NewItem onAddItem={handleAddItem} />
-        <ItemList items={items} />
       </section>
     </main>
   );
