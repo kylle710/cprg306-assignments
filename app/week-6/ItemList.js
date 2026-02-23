@@ -14,7 +14,7 @@ export default function ItemList({ items }) {
 
   return (
     <div>
-      <div className="mb-4 space-x-2">
+      <div className="mt-4 mb-4 space-x-2">
         <button
           className={sortBy === "name" ? "font-bold" : ""}
           onClick={() => setSortBy("name")}
