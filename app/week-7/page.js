@@ -7,9 +7,10 @@ import itemsData from "./items.json";
 export default function Page() {
   const [items, setItems] = useState(itemsData);
 
-  function handleAddItem(newItem) {
-  setItems((prevItems) => [...prevItems, newItem]);
-  }
+  const handleAddItem = (newItem) => {
+  setItems((prev) => [...prev, newItem]);
+};
+
 
   return (
     <main className="min-h-screen bg-zinc-900 flex items-center justify-center">

@@ -1,30 +1,27 @@
 "use client";
 import { useState } from "react";
 
+const initialState = { name: "", quantity: 1, category: "Produce" };
+
 export default function NewItem({ onAddItem }) {
   const [item, setItem] = useState({
   name: "",
   quantity: 1,
-  category: "produce",
+  category: "Produce",
   });
 
   const handleChange = (e) => {
   const { name, value, type } = e.target;
-  setItem((prev) => ({
-    ...prev,
-    [name]: type === "number" ? Number(value) : value,
-  }));
+  setItem((prev) => ({...prev,[name]: type === "number" ? Number(value) : value,}));
   };
 
   function handleSubmit(event) {
   event.preventDefault();
   
-  // Use the spread operator to create the new item
   const newItem = { ...item, id: crypto.randomUUID() };
   onAddItem(newItem);
   
-  // Reset the WHOLE object to its starting values
-  setItem({ name: "", quantity: 1, category: "produce" });
+  setItem(initialState);
 }
 
   return (
