@@ -32,7 +32,6 @@ async function fetchMealIdeas(ingredient) {
 
 
 
-
 "use client";
 
 import { useState, useEffect } from "react";
