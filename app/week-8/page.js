@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 "use client";
 import NewItem from "./NewItem";
 import { useState } from "react";
