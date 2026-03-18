@@ -5,13 +5,11 @@ import NewItem from "./NewItem";
 import ItemList from "./ItemList";
 import MealIdeas from "./MealIdeas";
 import itemsData from "./items.json";
-import { useUserAuth } from "../../contexts/AuthContext"; // Adjust path if needed
+import { useUserAuth } from "../../contexts/AuthContext";
 import Link from "next/link";
 
 export default function Page() {
   const { user } = useUserAuth();
-
-  // 1. Check if the user is NOT logged in
   if (!user) {
     return (
       <main className="p-4">
@@ -23,13 +21,9 @@ export default function Page() {
       </main>
     );
   }
-
-  // 2. If the user IS logged in, the rest of your Week 8 code follows here
   return (
     <main>
-      {/* Your existing Shopping List UI, ItemList, NewItem, etc. */}
       <h1>Your Shopping List</h1>
-      {/* ... rest of your components ... */}
     </main>
   );
 }
