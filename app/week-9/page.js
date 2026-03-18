@@ -1,14 +1,11 @@
 "use client";
 
-// 1. Import the custom hook we made in Part 3
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
 
 export default function Page() {
-  // 2. Destructure the helpers from our context
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
-  // 3. Define the handle functions for buttons
   const handleLogin = async () => {
     try {
       await gitHubSignIn();

@@ -60,7 +60,7 @@ export function WeekEightLink() {
   );
 }
 
-export function WeekEightLink() {
+export function WeekNineLink() {
     return (
       <Link href="/week-9"> Go to week-9 → </Link>
   );
