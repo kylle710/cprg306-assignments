@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserAuth } from "./_utils/auth-context";
+import { useUserAuth } from "../contexts/AuthContext";
 import Link from "next/link";
 
 export default function Page() {
