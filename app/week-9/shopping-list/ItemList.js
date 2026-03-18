@@ -1,0 +1,46 @@
+"use client";
+
+import { useState } from "react";
+import Item from "./Item";
+
+export default function ItemList({ items, onItemSelect }) {
+  const [sortBy, setSortBy] = useState("name");
+
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortBy === "name") return a.name.localeCompare(b.name);
+    if (sortBy === "category") return a.category.localeCompare(b.category);
+    return 0;
+  });
+
+  return (
+    <div>
+      <div className="mt-4 mb-4 space-x-4 flex items-center justify-center">
+        <span className="text-sm">Sort by:</span>
+        <button
+          className={`px-2 py-1 rounded ${sortBy === "name" ? "bg-orange-500 font-bold" : "bg-zinc-700"}`}
+          onClick={() => setSortBy("name")}
+        >
+          Name
+        </button>
+        <button
+          className={`px-2 py-1 rounded ${sortBy === "category" ? "bg-orange-500 font-bold" : "bg-zinc-700"}`}
+          onClick={() => setSortBy("category")}
+        >
+          Category
+        </button>
+      </div>
+
+      <ul className="space-y-4">
+        {sortedItems.map((item) => (
+          <Item
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+            onSelect={() => onItemSelect(item)} 
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
