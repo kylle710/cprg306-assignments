@@ -1,21 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { useUserAuth } from "../../contexts/AuthContext"; // Import the hook
-import ItemList from "./item-list"; // Adjust paths if needed
+import { useUserAuth } from "../contexts/AuthContext";
+import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
 import Link from "next/link";
 
 export default function Page() {
-  const { user } = useUserAuth(); // Get the user object
+  const { user } = useUserAuth();
 
-  // 1. Initialize your state (from your Week 8 code)
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
 
-  // 2. The Protection Check
-  // If user is null, show the "Access Denied" message and STOP here.
   if (!user) {
     return (
       <main className="p-4">
