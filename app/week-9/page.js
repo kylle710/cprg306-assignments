@@ -6,18 +6,26 @@ import Link from "next/link";
 export default function Page() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
-  const handleLogin = async () => {
-    try {
+  const handleLogin = async () => 
+  {
+    try 
+    {
       await gitHubSignIn();
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error("Login failed:", error);
     }
   };
 
-  const handleLogout = async () => {
-    try {
+  const handleLogout = async () => 
+  {
+    try 
+    {
       await firebaseSignOut();
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error("Logout failed:", error);
     }
   };
@@ -25,10 +33,7 @@ export default function Page() {
   return (
     <main className="p-4">
       <h1 className="text-2xl font-bold mb-4">Shopping List App</h1>
-
-      {/* 4. Conditional Rendering Logic */}
       {user ? (
-        // UI for Logged-In Users
         <section>
           <p className="mb-2">
             Welcome, {user.displayName} ({user.email})
@@ -49,7 +54,6 @@ export default function Page() {
           </div>
         </section>
       ) : (
-        // UI for Guests
         <section>
           <button 
             onClick={handleLogin}
