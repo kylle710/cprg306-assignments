@@ -1,41 +1,39 @@
 "use client";
 
 import { useState } from "react";
-import { useUserAuth } from "../../contexts/AuthContext";
-import ItemList from "./ItemList";
 import NewItem from "./NewItem";
+import ItemList from "./ItemList";
+import MealIdeas from "./MealIdeas";
 import itemsData from "./items.json";
-import Link from "next/link";
 
 export default function Page() {
-  const { user } = useUserAuth();
-
   const [items, setItems] = useState(itemsData);
+  
   const [selectedItemName, setSelectedItemName] = useState("");
 
-  if (!user) {
-    return (
-      <main className="p-4">
-        <h1 className="text-xl font-bold">Access Denied</h1>
-        <p>You must be logged in to view this page.</p>
-        <Link href="/week-9" className="text-blue-500 underline">
-          Back to Login
-        </Link>
-      </main>
-    );
-  }
-
   const handleAddItem = (newItem) => {
-    setItems([...items, newItem]);
+    setItems((prev) => [...prev, newItem]);
+  };
+
+
+  const handleItemSelect = (item) => {
+    setSelectedItemName(item.name.split(',')[0].replace(/[^\w\s]/gi, "").trim());
   };
 
   return (
-    <main className="p-6 bg-slate-950 min-h-screen">
-      <h1 className="text-3xl font-bold text-white mb-4">Shopping List</h1>
-      <div className="flex gap-4">
+    <main className="min-h-screen bg-zinc-900 p-8 flex justify-center gap-10">
+      <section className="bg-zinc-800 p-6 rounded-xl w-full max-w-md text-white h-fit">
+        <h1 className="text-2xl font-bold text-center mb-4">
+          Shopping List
+        </h1>
         <NewItem onAddItem={handleAddItem} />
-        <ItemList items={items} />
-      </div>
+        <ItemList items={items} onItemSelect={handleItemSelect} />
+      </section>
+        <section className="bg-zinc-800 p-6 rounded-xl w-full max-w-md text-white h-fit">
+          <h1 className="text-2xl font-bold mb-4">Meal Ideas</h1>
+          <MealIdeas ingredient={selectedItemName} />
+      </section>
+
     </main>
   );
 }
