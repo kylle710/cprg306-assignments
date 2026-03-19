@@ -83,28 +83,33 @@ export default function NewItem({ onAddItem }) {
 }
 
 const styles = {
-  form: {
+  form: 
+  {
     display: "flex",
     flexDirection: "column",
     gap: "1rem",
   },
-  field: {
+  field: 
+  {
     display: "flex",
     flexDirection: "column",
   },
-  label: {
+  label: 
+  {
     marginBottom: "0.25rem",
     fontSize: "0.9rem",
     color: "#ccc",
   },
-  input: {
+  input: 
+  {
     padding: "0.5rem",
     borderRadius: "6px",
     border: "1px solid #444",
     backgroundColor: "#222",
     color: "#fff",
   },
-  select: {
+  select: 
+  {
     padding: "0.5rem",
     borderRadius: "6px",
     border: "1px solid #444",
