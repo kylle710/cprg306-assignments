@@ -3,7 +3,7 @@ import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
 
 
-async function getItems(userId) 
+export async function getItems(userId) 
 {
   const items = [];
 
@@ -27,7 +27,7 @@ async function getItems(userId)
   }
 }
 
-async function addItem(userId, item) 
+export async function addItem(userId, item) 
 {
   try
   {
