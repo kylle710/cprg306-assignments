@@ -5,7 +5,7 @@ import NewItem from "./NewItem";
 import ItemList from "./ItemList";
 import MealIdeas from "./MealIdeas";
 import { getItems, addItem } from "../_services/shopping-list-service";
-import { useUserAuth } from "./_utils/auth-context";
+import { useUserAuth } from "../../contexts/AuthContext";
 
 export default function Page() {
   const [items, setItems] = useState([]);
