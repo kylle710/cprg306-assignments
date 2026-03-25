@@ -12,6 +12,7 @@ export default function Page() {
         <WeekSevenLink/>
         <WeekEightLink/>
         <WeekNineLink/>
+        <WeekTenLink/>
     </div>
   );
 }
@@ -63,5 +64,11 @@ export function WeekEightLink() {
 export function WeekNineLink() {
     return (
       <Link href="/week-9"> Go to week-9 → </Link>
+  );
+}
+
+export function WeekTenLink() {
+    return (
+      <Link href="/week-10"> Go to week-10 → </Link>
   );
 }
