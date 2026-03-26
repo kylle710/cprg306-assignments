@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-dynamic";
 
 import { useUserAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
@@ -6,6 +7,7 @@ import NewItem from "./NewItem";
 import ItemList from "./ItemList";
 import MealIdeas from "./MealIdeas";
 import itemsData from "./items.json";
+
 const { user } = useUserAuth();
 
 if (!user) {
@@ -19,6 +21,7 @@ if (!user) {
     </main>
   );
 }
+
 export default function Page() {
   const [items, setItems] = useState(itemsData);
   
