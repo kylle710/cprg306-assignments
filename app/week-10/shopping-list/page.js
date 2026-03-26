@@ -12,6 +12,22 @@ export default function Page() {
   const [selectedItemName, setSelectedItemName] = useState("");
   const { user, loading } = useUserAuth();
 
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-zinc-900 flex items-center justify-center">
+        <p className="text-white text-xl animate-pulse">Loading your list...</p>
+      </main>
+    );
+  }
+
+  if (!user) {
+    return (
+      <main className="min-h-screen bg-zinc-900 flex flex-col items-center justify-center">
+        <p className="text-white text-center mb-4">Please log in to see your list.</p>
+        <a href="/week-10" className="text-blue-500 underline">Return to Login</a>
+      </main>
+    );
+  }
 
   const loadItems = async () => {
     try {
@@ -30,14 +46,6 @@ export default function Page() {
     }
   }, [user]);
 
-  if (loading) {
-    return (
-      <main className="min-h-screen bg-zinc-900 flex items-center justify-center">
-        <p className="text-white text-xl animate-pulse">Loading your list...</p>
-      </main>
-    );
-  }
-
   const handleAddItem = async (newItem) => {
     try {
       if (user) {
@@ -53,8 +61,6 @@ export default function Page() {
   const handleItemSelect = (item) => {
     setSelectedItemName(item.name.split(',')[0].replace(/[^\w\s]/gi, "").trim());
   };
-
-  if (!user) return <p className="text-white text-center">Please log in to see your list.</p>;
 
   return (
     <main className="min-h-screen bg-zinc-900 p-8 flex justify-center gap-10">
