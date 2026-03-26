@@ -12,14 +12,6 @@ export default function Page() {
   const [selectedItemName, setSelectedItemName] = useState("");
   const { user, loading } = useUserAuth();
 
-  if (loading) {
-    return (
-      <main className="min-h-screen bg-zinc-900 flex items-center justify-center">
-        <p className="text-white text-xl animate-pulse">Loading your list...</p>
-      </main>
-    );
-  }
-
   const loadItems = async () => {
     try {
       if (user) {
