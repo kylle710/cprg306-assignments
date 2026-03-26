@@ -41,7 +41,7 @@ export default function Page() {
             Welcome, {user.displayName} ({user.email})
           </p>
           <div className="flex flex-col gap-2">
-            <Link href="/week-9/shopping-list" className="text-blue-500 hover:underline">
+            <Link href="/week-10/shopping-list" className="text-blue-500 hover:underline">
                 Continue to your Shopping List
             </Link>
             <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded w-max">
