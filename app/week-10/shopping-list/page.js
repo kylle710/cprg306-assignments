@@ -20,15 +20,6 @@ export default function Page() {
     );
   }
 
-  if (!user) {
-    return (
-      <main className="min-h-screen bg-zinc-900 flex flex-col items-center justify-center">
-        <p className="text-white text-center mb-4">Please log in to see your list.</p>
-        <a href="/week-10" className="text-blue-500 underline">Return to Login</a>
-      </main>
-    );
-  }
-
   const loadItems = async () => {
     try {
       if (user) {
