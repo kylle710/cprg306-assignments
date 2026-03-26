@@ -1,5 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic";
 
 import { useUserAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
@@ -7,20 +6,6 @@ import NewItem from "./NewItem";
 import ItemList from "./ItemList";
 import MealIdeas from "./MealIdeas";
 import itemsData from "./items.json";
-
-const { user } = useUserAuth();
-
-if (!user) {
-  return (
-    <main className="p-4">
-      <h1 className="text-xl font-bold">Access Denied</h1>
-      <p className="mb-4">You must be logged in to view your shopping list.</p>
-      <Link href="/week-9" className="text-blue-500 underline">
-        Return to Login Page
-      </Link>
-    </main>
-  );
-}
 
 export default function Page() {
   const [items, setItems] = useState(itemsData);
