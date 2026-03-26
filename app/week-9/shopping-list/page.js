@@ -24,18 +24,6 @@ export default function Page() {
 
   const { user } = useUserAuth();
 
-  if (!user) {
-    return (
-      <main className="p-4">
-        <h1 className="text-xl font-bold">Access Denied</h1>
-        <p className="mb-4">You must be logged in to view your shopping list.</p>
-        <Link href="/week-9" className="text-blue-500 underline">
-          Return to Login Page
-        </Link>
-      </main>
-    );
-  }
-
   return (
     <main className="min-h-screen bg-zinc-900 p-8 flex justify-center gap-10">
       <section className="bg-zinc-800 p-6 rounded-xl w-full max-w-md text-white h-fit">
