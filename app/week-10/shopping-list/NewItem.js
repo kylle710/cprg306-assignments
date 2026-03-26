@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const initialState = { name: "", quantity: 1, category: "Produce" };
+const initialState = { name: "", quantity: 1, category: "produce" };
 
 export default function NewItem({ onAddItem }) {
   const [item, setItem] = useState({
@@ -18,7 +18,6 @@ export default function NewItem({ onAddItem }) {
   function handleSubmit(event) {
   event.preventDefault();
   
-  const newItem = { ...item, id: crypto.randomUUID() };
   onAddItem(newItem);
   
   setItem(initialState);
@@ -61,17 +60,17 @@ export default function NewItem({ onAddItem }) {
           onChange={handleChange}
           style={styles.select}
         >
-          <option value="Produce">Produce</option>
-          <option value="Dairy">Dairy</option>
-          <option value="Bakery">Bakery</option>
-          <option value="Meat">Meat</option>
-          <option value="Frozen Foods">Frozen Foods</option>
-          <option value="Canned Goods">Canned Goods</option>
-          <option value="Dry Goods">Dry Goods</option>
-          <option value="Beverages">Beverages</option>
-          <option value="Snacks">Snacks</option>
-          <option value="HouseHold">Household</option>
-          <option value="Other">Other</option>
+          <option value="produce">Produce</option>
+          <option value="dairy">Dairy</option>
+          <option value="bakery">Bakery</option>
+          <option value="meat">Meat</option>
+          <option value="frozen foods">Frozen Foods</option>
+          <option value="canned goods">Canned Goods</option>
+          <option value="dry goods">Dry Goods</option>
+          <option value="beverages">Beverages</option>
+          <option value="snacks">Snacks</option>
+          <option value="household">Household</option>
+          <option value="other">Other</option>
         </select>
       </div>
 
