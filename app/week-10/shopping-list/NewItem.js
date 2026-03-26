@@ -18,7 +18,7 @@ export default function NewItem({ onAddItem }) {
   function handleSubmit(event) {
   event.preventDefault();
   
-  onAddItem(Item);
+  onAddItem(item);
   
   setItem(initialState);
 }
