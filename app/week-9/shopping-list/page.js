@@ -6,6 +6,7 @@ import NewItem from "./NewItem";
 import ItemList from "./ItemList";
 import MealIdeas from "./MealIdeas";
 import itemsData from "./items.json";
+import Link from "next/link";
 
 export default function Page() {
   const [items, setItems] = useState(itemsData);
