@@ -1,63 +1,55 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useUserAuth } from "../../contexts/AuthContext";
+import { useState } from "react";
 import NewItem from "./NewItem";
 import ItemList from "./ItemList";
 import MealIdeas from "./MealIdeas";
-import { getItems, addItem } from "../_services/shopping-list-service";
-import { useUserAuth } from "../../contexts/AuthContext";
+import itemsData from "./items.json";
+import Link from "next/link";
 
 export default function Page() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(itemsData);
+  
   const [selectedItemName, setSelectedItemName] = useState("");
-  const { user } = useUserAuth();
 
-  const loadItems = async () => {
-    try {
-      if (user) {
-        const fetchedItems = await getItems(user.uid);
-        setItems(fetchedItems);
-      }
-    } catch (error) {
-      console.error("Error loading items:", error);
-    }
+  const handleAddItem = (newItem) => {
+    setItems((prev) => [...prev, newItem]);
   };
 
-  useEffect(() => {
-    if (user) {
-      loadItems();
-    }
-  }, [user]);
-
-  const handleAddItem = async (newItem) => {
-    try {
-      if (user) {
-        const newItemId = await addItem(user.uid, newItem);
-        const itemWithId = { ...newItem, id: newItemId };
-        setItems((prev) => [...prev, itemWithId]);
-      }
-    } catch (error) {
-      console.error("Error adding item:", error);
-    }
-  };
 
   const handleItemSelect = (item) => {
     setSelectedItemName(item.name.split(',')[0].replace(/[^\w\s]/gi, "").trim());
   };
 
-  if (!user) return <p className="text-white text-center">Please log in to see your list.</p>;
+  const { user } = useUserAuth();
+
+  if (!user) {
+    return (
+      <main className="p-4">
+        <h1 className="text-xl font-bold">Access Denied</h1>
+        <p className="mb-4">You must be logged in to view your shopping list.</p>
+        <Link href="/week-9" className="text-blue-500 underline">
+          Return to Login Page
+        </Link>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-zinc-900 p-8 flex justify-center gap-10">
       <section className="bg-zinc-800 p-6 rounded-xl w-full max-w-md text-white h-fit">
-        <h1 className="text-2xl font-bold text-center mb-4">Shopping List</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">
+          Shopping List
+        </h1>
         <NewItem onAddItem={handleAddItem} />
         <ItemList items={items} onItemSelect={handleItemSelect} />
       </section>
-      <section className="bg-zinc-800 p-6 rounded-xl w-full max-w-md text-white h-fit">
-        <h1 className="text-2xl font-bold mb-4">Meal Ideas</h1>
-        <MealIdeas ingredient={selectedItemName} />
+        <section className="bg-zinc-800 p-6 rounded-xl w-full max-w-md text-white h-fit">
+          <h1 className="text-2xl font-bold mb-4">Meal Ideas</h1>
+          <MealIdeas ingredient={selectedItemName} />
       </section>
+
     </main>
   );
 }
