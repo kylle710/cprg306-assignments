@@ -7,7 +7,7 @@ export default function NewItem({ onAddItem }) {
   const [item, setItem] = useState({
   name: "",
   quantity: 1,
-  category: "Produce",
+  category: "produce",
   });
 
   const handleChange = (e) => {
