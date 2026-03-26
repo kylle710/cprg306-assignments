@@ -14,6 +14,8 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
  
+  const [loading, setLoading] = useState(true);
+
   const gitHubSignIn = () => {
     const provider = new GithubAuthProvider();
     return signInWithPopup(auth, provider);
